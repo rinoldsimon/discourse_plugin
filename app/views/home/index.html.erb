@@ -7,3 +7,21 @@
   <%= "#{title} - #{price}" %>
   <%= item.at_css(".prodLink")[:href] %>
 <% end %>
+<br>
+
+# Search for nodes by css
+<% @doc1.css('nav ul.menu li a').each do |link| %>
+  <%= link.content %>
+<% end %>
+<br>
+
+# Search for nodes by xpath
+<% @doc.xpath('//h2 | //h3').each do |link| %>
+  <%= link.content %>
+<% end %>
+<br>
+
+# Or mix and match.
+<% @doc1.search('code.sh', '//h2').each do |link| %>
+  <%= link.content %>
+<% end %>
