@@ -28,7 +28,7 @@
 <br> 
 
 # Discourse Search for nodes by css
-<% @doc2.css('div.contents table tr td a').each do |link| %>
+<% @doc2.css('table.ember-view topic-list tbody tr.ember-view topic-list-item category-uncategorized td.main-link clearfix a.title').each do |link| %>
   <%= link.content %>
 <% end %>
 <br>
