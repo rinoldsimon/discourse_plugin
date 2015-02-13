@@ -1,46 +1,17 @@
-<%= @doc.at_css("title").text %>
-<% 
-  @doc.css(".item").each do |item|
-  title = item.at_css(".prodLink").text
-  price = item.at_css(".PriceCompare .BodyS, .PriceXLBold").text[/\$[0-9\.]+/]
-%> 
-  <%= "#{title} - #{price}" %>
-  <%= item.at_css(".prodLink")[:href] %>
+<% @doc2.xpath('//a').each_with_index do |link, i| %>
+  <%= simple_format link.content %>
+  <% break if i == 1 %>
 <% end %>
-<br>
 
-# Search for nodes by css
-<% @doc1.css('nav ul.menu li a').each do |link| %>
-  <%= link.content %>
+<% @doc2.xpath('//a').each_with_index do |link, i| %>
+  <% a=link.content.gsub! /\s+/, '-' %>
+  <%= a.to_s.chop %>
+  <% break if i == 1 %>
 <% end %>
-<br>
 
-# Search for nodes by xpath
-<% @doc1.xpath('//h2 | //h3').each do |link| %>
-  <%= link.content %>
+<% @doc2.xpath('//a').each_with_index do |link, i| %>
+  <% a=link.content.gsub! /\s+/, '-' %>
+  <% b=a.to_s.chop %>
+  <a href="http://try.discourse.org/t/<%= b %>/"><%= simple_format link.content %></a>
+  <% break if i == 1 %>
 <% end %>
-<br>
-
-# Or mix and match.
-<% @doc1.search('code.sh', '//h2').each do |link| %>
-  <%= link.content %>
-<% end %>
-<br> 
-
-# Discourse Search for nodes by css
-<% @doc2.css('table.ember-view topic-list tbody tr.ember-view topic-list-item category-uncategorized td.main-link clearfix a.title').each do |link| %>
-  <%= link.content %>
-<% end %>
-<br>
-
-# Search for nodes by xpath
-<% @doc2.xpath('//a').each do |link| %>
-  <a href = "http://try.discourse.org/t/<%= link.content %>/"><%= link.content %></a><br>
-<% end %>
-<br>
-
-# Or mix and match.
-<% @doc2.search('a.title', '//h2').each do |link| %>
-  <%= link.content %>
-<% end %>
-<br> 
