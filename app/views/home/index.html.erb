@@ -16,7 +16,7 @@
 <br>
 
 # Search for nodes by xpath
-<% @doc.xpath('//h2 | //h3').each do |link| %>
+<% @doc1.xpath('//h2 | //h3').each do |link| %>
   <%= link.content %>
 <% end %>
 <br>
@@ -25,3 +25,22 @@
 <% @doc1.search('code.sh', '//h2').each do |link| %>
   <%= link.content %>
 <% end %>
+<br> 
+
+# Discourse Search for nodes by css
+<% @doc2.css('div.contents table tr td a').each do |link| %>
+  <%= link.content %>
+<% end %>
+<br>
+
+# Search for nodes by xpath
+<% @doc2.xpath('//a').each do |link| %>
+  <a href = "http://try.discourse.org/t/<%= link.content %>/"><%= link.content %></a><br>
+<% end %>
+<br>
+
+# Or mix and match.
+<% @doc2.search('a.title', '//h2').each do |link| %>
+  <%= link.content %>
+<% end %>
+<br> 

@@ -9,5 +9,7 @@ class HomeController < ApplicationController
 
     # Fetch and parse HTML document
     @doc1 = Nokogiri::HTML(open('http://www.nokogiri.org/tutorials/installing_nokogiri.html'))
+
+    @doc2 = Nokogiri::HTML(open('http://try.discourse.org/top'))
   end
 end
