@@ -1,17 +1,7 @@
-<% @doc2.xpath('//a').each_with_index do |link, i| %>
-  <%= simple_format link.content %>
-  <% break if i == 1 %>
-<% end %>
-
-<% @doc2.xpath('//a').each_with_index do |link, i| %>
+<!-- displaying top post -->
+<% @tpost.each_with_index do |link, i| %>
   <% a=link.content.gsub! /\s+/, '-' %>
-  <%= a.to_s.chop %>
-  <% break if i == 1 %>
-<% end %>
-
-<% @doc2.xpath('//a').each_with_index do |link, i| %>
-  <% a=link.content.gsub! /\s+/, '-' %>
-  <% b=a.to_s.chop %>
-  <a href="http://try.discourse.org/t/<%= b %>/"><%= simple_format link.content %></a>
+  <% ttop=a.to_s.chop %>
+  <a href="http://try.discourse.org/t/<%= ttop %>/" target="_blank"><%= simple_format link.content %></a>
   <% break if i == 1 %>
 <% end %>
