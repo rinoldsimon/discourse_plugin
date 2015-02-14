@@ -1,7 +1,10 @@
 <!-- displaying top post -->
 <% @tpost.each_with_index do |link, i| %>
   <% a=link.content.gsub! /\s+/, '-' %>
-  <% ttop=a.to_s.chop %>
-  <a href="http://try.discourse.org/t/<%= ttop %>/" target="_blank"><%= simple_format link.content %></a>
+  <% @top=a.to_s.chop %>
+  <a href="http://try.discourse.org/t/<%= @top %>/" target="_blank"><%= simple_format link.content %></a>
   <% break if i == 1 %>
 <% end %>
+
+
+<% Toppost.where(tpost: "#{@top}").first_or_create! %>
