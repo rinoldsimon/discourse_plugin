@@ -10,6 +10,6 @@
 <% Toppost.where(tpost: "#{@top}").first_or_create! %>
 
 <% 
-@graph = Koala::Facebook::API.new("CAAGCzjI6pisBAMN9rliDuv8BeXibeSzOZCBZAGPRpW9VO2SJt6SXRoTOEKAMunyCTPuJckWaojEGDcZAfOuHoBGZBoZCjcdMQAauIz36efHQosctAOgkMh97UePhMRu7RGZCwqXl1SWJ7XypzZAGLYWOtuUCvxZCmdVQhyVNg8SPTZAB3d4dnGyUEkvzdsnvGsMRPMl6d1ZBgHnDj2Wik1vN6bRZBKf1vwEAi8ZD")
-@graph.put_wall_post("hey, i'm learning koala")
+@graph = Koala::Facebook::API.new("CAAGCzjI6pisBALZBVN8ad6ZAeYOZCD11PW10B20TcRE9QMH9fZAsfRMvZCEFUU7xSH7aZBu67GAtnZBa51Mnb1hvxlBkvgC4OEqRhymvVDOLwCBn8R6LnmV0Yz6ZA4RJcZAYc1uDSVZCZCriRhJcUjqnZBa7BEdb4FZAubGR9CgXHcZAQAKMPZA7RHUPFOWeuIKy4ZCxw1dkbDDqpmhcmZA9tTJJg7WRo")
+@graph.put_wall_post("http://try.discourse.org/t/#{@top}/")
 %>
