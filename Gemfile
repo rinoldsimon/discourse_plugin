@@ -40,3 +40,4 @@ gem 'spring',        group: :development
 
 gem 'discourse_api'
 gem 'nokogiri'
+gem "koala", "~> 1.11.0rc"
