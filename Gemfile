@@ -40,4 +40,7 @@ gem 'spring',        group: :development
 
 gem 'discourse_api'
 gem 'nokogiri'
+gem 'omniauth'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'fb_graph'
