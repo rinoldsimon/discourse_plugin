@@ -1,3 +1,10 @@
+<% if current_user %>
+  Welcome <%= current_user.name %>!
+  <%= link_to "Sign Out", signout_path %>
+<% else %>
+  <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+<% end %>
+
 <!-- displaying top post -->
 <% @tpost.each_with_index do |link, i| %>
   <% a=link.content.gsub! /\s+/, '-' %>
@@ -8,8 +15,3 @@
 
 
 <% Toppost.where(tpost: "#{@top}").first_or_create! %>
-
-<% 
-@graph = Koala::Facebook::API.new("CAAGCzjI6pisBALZBVN8ad6ZAeYOZCD11PW10B20TcRE9QMH9fZAsfRMvZCEFUU7xSH7aZBu67GAtnZBa51Mnb1hvxlBkvgC4OEqRhymvVDOLwCBn8R6LnmV0Yz6ZA4RJcZAYc1uDSVZCZCriRhJcUjqnZBa7BEdb4FZAubGR9CgXHcZAQAKMPZA7RHUPFOWeuIKy4ZCxw1dkbDDqpmhcmZA9tTJJg7WRo")
-@graph.put_wall_post("http://try.discourse.org/t/#{@top}/")
-%>
