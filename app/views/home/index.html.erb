@@ -15,3 +15,6 @@
 <% end %>
 
 <% Toppost.where(tpost: "#{@top}").first_or_create! %>
+
+<% @user = Koala::Facebook::API.new("CAAGCzjI6pisBANZCgHGlZBvHXch6n47myhRHpH7FR7zZAy85C40EMwzZBJXsn6R2YhZBWuSd0cOWSx5MZBeBhdKBXiYUXlG1GWMhZA0n92RLhB9LNUWz6IFetepRTiqBanvjm5gqz5uj88CtQfcZBHyhUd7U26SuVQVZCi1bsj6FZAk3OP3HwyfLuY2IGbcGtY9cZCTeSSB7watHP8QsXtvjhpWBf1VehZCtecQZD") %>
+<% @user.put_connections("me", "feed", :message => "I am writing on my wall!") %>

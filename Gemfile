@@ -38,9 +38,10 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-gem 'discourse_api'
+#gem 'discourse_api'
 gem 'nokogiri'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'fb_graph'
+gem 'koala'
