@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
     begin
       case self.provider
        when 'facebook' then facebook.feed!(:message => text, :name => feed_name)
-       when 'twitter' then twitter.request(:post, "http://api.twitter.com/1/statuses/update.json", :status => text)
+       when 'twitter' then twitter.request(:post, "https://api.twitter.com/1.1/statuses/update.json", :status => text)
       end
     rescue Exception => e
     end
