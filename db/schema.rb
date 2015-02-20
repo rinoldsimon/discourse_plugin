@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150220133642) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "auth_hash",  limit: 2000
+    t.text     "auth_hash"
   end
 
 end
