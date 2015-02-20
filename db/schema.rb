@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150217143840) do
+ActiveRecord::Schema.define(version: 20150220133642) do
 
   create_table "topposts", force: true do |t|
     t.string   "tpost"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150217143840) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "auth_hash",  limit: 2000
   end
 
 end

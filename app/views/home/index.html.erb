@@ -16,4 +16,4 @@
 
 <% Toppost.where(tpost: "#{@top}").first_or_create! %>
 
-<% @user.publish("Hello, my Facebook or Twitter friends!") %>
+<% current_user.publish("Hello, my Facebook or Twitter friends!","facebook") if current_user %>

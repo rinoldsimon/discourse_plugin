@@ -45,3 +45,5 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'fb_graph'
 gem 'koala'
+gem "oauth2"
+gem "oauth"

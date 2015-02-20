@@ -160,6 +160,8 @@ DEPENDENCIES
   jquery-rails
   koala
   nokogiri
+  oauth
+  oauth2
   omniauth
   omniauth-facebook
   omniauth-twitter
