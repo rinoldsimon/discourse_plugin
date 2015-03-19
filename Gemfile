@@ -41,10 +41,10 @@ gem 'spring',        group: :development
 #gem 'discourse_api'
 gem 'nokogiri'
 gem 'omniauth'
-gem 'twitter'
+#gem 'twitter'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'fb_graph'
-gem 'koala'
-gem "oauth2"
-gem "oauth"
+#gem 'koala'
+#gem "oauth2"
+#gem "oauth"
