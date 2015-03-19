@@ -19,4 +19,4 @@
 
 <% Toppost.where(tpost: "#{@top}").first_or_create! %>
 
-<% current_user.publish("#{@toppost}","facebook") if current_user %>
+<% current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>

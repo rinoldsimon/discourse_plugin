@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   def publish(text, feed_name)
     begin
       case self.provider
-       when 'facebook' then facebook.feed!(:message => text, :name => feed_name)
+       when 'facebook' then facebook.feed!(:message => 'Top post from Discourse platform', :link => text)
        when 'twitter' then twitter.request(:post, "https://api.twitter.com/1.1/statuses/update.json", :status => text)
       end
     rescue Exception => e
