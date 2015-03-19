@@ -10,12 +10,13 @@
 <% @tpost.each_with_index do |link, i| %>
   <% a=link.content.gsub! /\s+/, '-' %>
   <% @top=a.to_s.chop %>
-    <% if i == 2 %>
-      <a href="http://try.discourse.org/t/<%= @top %>/" target="_blank"><%= simple_format link.content %></a>
+    <% unless i%2 != 0 %>
+      <% @toppost = link.content %>
+      <a href="http://try.discourse.org/t/<%= @top %>/" target="_blank"><%= simple_format @toppost %></a>
     <% end %>
   <% break if i == 2 %>
 <% end %>
 
 <% Toppost.where(tpost: "#{@top}").first_or_create! %>
 
-<% current_user.publish("Hello, my Facebook or Twitter friends!","facebook") if current_user %>
+<% current_user.publish("#{@toppost}","facebook") if current_user %>
