@@ -19,4 +19,9 @@
 
 <% Toppost.where(tpost: "#{@top}").first_or_create! %>
 
-<% current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
+<%# current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
+
+
+<a class="btn btn-block btn-social btn-facebook">
+    <i class="fa fa-facebook"></i> Sign in with Facebook
+</a>

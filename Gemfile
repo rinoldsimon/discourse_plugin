@@ -48,3 +48,5 @@ gem 'fb_graph'
 #gem 'koala'
 #gem "oauth2"
 #gem "oauth"
+gem 'bootstrap-sass'
+gem 'font-awesome-sass'
