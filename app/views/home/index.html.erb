@@ -1,8 +1,13 @@
+<head>
+  <script src="sweet-alert.min.js"></script> 
+  <link rel="stylesheet" type="text/css" href="sweet-alert.css">
+</head>
+
 <body>
 
 <% if current_user %>
     Welcome <%= current_user.name %>!
-    <%= link_to '<i class=" btn btn-pinterest fa fa-power-off"> |Sign out</i>'.html_safe, signout_path %>
+    <%= link_to '<i class=" btn btn-pinterest fa fa-power-off"> Sign out</i>'.html_safe, signout_path %>
 <% else %>
   <a class="btn btn-social btn-facebook" href="/auth/facebook">
   <i class="fa fa-facebook"></i> Sign in with Facebook </a>
