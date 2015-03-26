@@ -22,18 +22,17 @@
   <% input1=input.gsub! /\s+/, '-' %>
   <% @top=input.to_s.chop %>
 
-    <% unless i%2 != 0 %>
+    <%# unless @top == '' && i%2 != 0 %>
+    <% if @top != '' && i%2 == 0 %>
 
       <% @toppost = link.content %>
       <a href="http://try.discourse.org/t/<%= @top %>/" target="_blank"><%= simple_format @toppost %></a>
       <% Toppost.where(tpost: "#{@top}").first_or_create! %>
-      <% if i == 6 %>
-        <% current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
-      <% end %>
+      <%# current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
 
     <% end %>
 
-  <% break if i == 6 %>
+  <% break if i == 2 %>
 
 <% end %>
 
