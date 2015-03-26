@@ -1,29 +1,40 @@
 <body>
 
 <% if current_user %>
+
     Welcome <%= current_user.name %>!
     <%= link_to '<i class=" btn btn-pinterest fa fa-power-off"> Sign out</i>'.html_safe, signout_path %>
+
 <% else %>
+
   <a class="btn btn-social btn-facebook" href="/auth/facebook">
   <i class="fa fa-facebook"></i> Sign in with Facebook </a>
 
   <a class="btn btn-social btn-twitter" href="/auth/twitter">
   <i class="fa fa-twitter"></i> Sign in with Twitter </a>
+
 <% end %>
 
 <!-- displaying top post -->
 <% @tpost.each_with_index do |link, i| %>
-  <% a=link.content.gsub! /\s+/, '-' %>
-  <% @top=a.to_s.chop %>
+
+  <% input=link.content.gsub(/'/, '') %>
+  <% input1=input.gsub! /\s+/, '-' %>
+  <% @top=input.to_s.chop %>
+
     <% unless i%2 != 0 %>
+
       <% @toppost = link.content %>
       <a href="http://try.discourse.org/t/<%= @top %>/" target="_blank"><%= simple_format @toppost %></a>
+      <% Toppost.where(tpost: "#{@top}").first_or_create! %>
+      <% if i == 6 %>
+        <% current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
+      <% end %>
+
     <% end %>
-  <% break if i == 2 %>
+
+  <% break if i == 6 %>
+
 <% end %>
-
-<% Toppost.where(tpost: "#{@top}").first_or_create! %>
-
-<%# current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
 
 </body>
