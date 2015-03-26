@@ -27,13 +27,21 @@
 
       <% @toppost = link.content %>
       <a href="http://try.discourse.org/t/<%= @top %>/" target="_blank"><%= simple_format @toppost %></a>
-      <% Toppost.where(tpost: "#{@top}").first_or_create! %>
-      <%# current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
+
+      <% if current_user %>
+        <% Toppost.where(tpost: "#{@top}", user_id: current_user.id).first_or_create! %>
+        <%# current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
+      <% end %>
 
     <% end %>
 
   <% break if i == 2 %>
 
 <% end %>
+
+
+<% current_user.topposts.each do |p| %>
+      <%= p.tpost %>
+      <% end %>
 
 </body>

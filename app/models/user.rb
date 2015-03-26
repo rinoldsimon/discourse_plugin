@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  has_many :topposts
+  
   def self.create_with_omniauth(auth)
     create! do |user|
       user.auth_hash = auth
