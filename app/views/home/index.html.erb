@@ -26,7 +26,7 @@
     <% if @top != '' && i%2 == 0 %>
 
       <% @toppost = link.content %>
-
+      <% @top = @top.gsub(/^./, "") %>
       <div class="panel-heading">
         <h3 class="panel-title">Top Post</h3>
       </div>
@@ -36,7 +36,6 @@
 
       <% Toppost.where(tpost: "#{@top}", user_id: current_user.id).first_or_create! if current_user %>
       <% current_user.publish("http://try.discourse.org/t/#{@top}/","facebook") if current_user %>
-
     <% end %>
 
   <% break if i == 2 %>
